@@ -70,7 +70,7 @@ const LoginCard: React.FC = () => {
       </div>
 
       <div className="flex justify-between items-center text-xs text-slate-400 pt-4">
-        <span>高端界面</span>
+        <span className="text-blue-600 font-medium">高端界面</span>
         <div className="flex gap-2">
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
           <span>系统在线</span>
