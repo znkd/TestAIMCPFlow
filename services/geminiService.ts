@@ -4,13 +4,13 @@ import { GoogleGenAI } from "@google/genai";
 const API_KEY = process.env.API_KEY || "";
 
 export const generateGreeting = async (username: string): Promise<string> => {
-  if (!username || username.length < 2) return "Hello there! Please enter your name.";
+  if (!username || username.length < 2) return "你好！请输入您的用户名。";
   
   try {
     const ai = new GoogleGenAI({ apiKey: API_KEY });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
-      contents: `Generate a very short (max 10 words), friendly, and welcoming greeting for a user named "${username}" who is logging into a premium app. No emojis.`,
+      contents: `为名为 "${username}" 的用户生成一个简短（最多10个字）、友好且热情的中文欢迎语。不要使用表情符号。`,
       config: {
         temperature: 0.7,
         topP: 0.8,
@@ -18,9 +18,9 @@ export const generateGreeting = async (username: string): Promise<string> => {
       }
     });
 
-    return response.text || `Welcome back, ${username}!`;
+    return response.text || `欢迎回来，${username}！`;
   } catch (error) {
     console.error("Gemini Greeting Error:", error);
-    return `Great to see you, ${username}.`;
+    return `很高兴见到你，${username}。`;
   }
 };

@@ -1,10 +1,10 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { generateGreeting } from '../services/geminiService';
 
 const LoginCard: React.FC = () => {
   const [username, setUsername] = useState('');
-  const [greeting, setGreeting] = useState('Welcome');
+  const [greeting, setGreeting] = useState('欢迎');
   const [isLoading, setIsLoading] = useState(false);
 
   // Throttled greeting generation
@@ -16,7 +16,7 @@ const LoginCard: React.FC = () => {
         setGreeting(newGreeting);
         setIsLoading(false);
       } else {
-        setGreeting('Welcome');
+        setGreeting('欢迎');
       }
     }, 800);
 
@@ -34,13 +34,13 @@ const LoginCard: React.FC = () => {
           {isLoading ? (
             <span className="flex items-center justify-center gap-2">
               <i className="fa-solid fa-circle-notch animate-spin text-indigo-500 text-sm"></i>
-              Thinking...
+              正在思考...
             </span>
           ) : (
             greeting
           )}
         </h1>
-        <p className="text-slate-500 text-sm font-medium uppercase tracking-widest">Secure Access</p>
+        <p className="text-slate-500 text-sm font-medium uppercase tracking-widest">安全访问</p>
       </div>
 
       <div className="space-y-6">
@@ -49,7 +49,7 @@ const LoginCard: React.FC = () => {
             htmlFor="username" 
             className="block text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-2 transition-colors group-focus-within:text-indigo-500"
           >
-            Username
+            用户名
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 transition-colors group-focus-within:text-indigo-500">
@@ -61,7 +61,7 @@ const LoginCard: React.FC = () => {
               value={username}
               onChange={handleInputChange}
               className="block w-full pl-11 pr-4 py-4 bg-slate-50/50 border border-slate-200 rounded-2xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all duration-200 text-lg"
-              placeholder="e.g. SatoshiNakamoto"
+              placeholder="例如：中本聪"
               autoComplete="off"
             />
           </div>
@@ -70,10 +70,10 @@ const LoginCard: React.FC = () => {
       </div>
 
       <div className="flex justify-between items-center text-xs text-slate-400 pt-4">
-        <span>Premium Interface</span>
+        <span>高端界面</span>
         <div className="flex gap-2">
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-          <span>System Online</span>
+          <span>系统在线</span>
         </div>
       </div>
     </div>
